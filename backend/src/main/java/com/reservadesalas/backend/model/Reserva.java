@@ -13,13 +13,13 @@ import jakarta.persistence.Table;
 @Table (name = "reservas")
 public class Reserva {
     @Id 
-    @GeneratedValue(strategy = GenerationType.IDENTITY);
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false, length = 100);
+    @Column(nullable = false, length = 100)
     private String recurso;
 
-    @Column(nullable = false, length = 100);
+    @Column(nullable = false, length = 100)
     private String responsavel;
 
     @Column (nullable = false)
@@ -29,7 +29,11 @@ public class Reserva {
     private int capacidade;
 
     @Column (nullable = false)
-    private Boolean confimada;
+    private Boolean confirmada = false;
+
+    public Reserva() {
+
+    }
 
     public Reserva(String recurso, String responsavel, LocalDateTime dataHora, int capacidade) {
         this.recurso = recurso;
@@ -60,8 +64,8 @@ public class Reserva {
         return capacidade;
     }
 
-    public Boolean getConfimada() {
-        return confimada;
+    public Boolean getConfirmada() {
+        return confirmada;
     }
 
     //Setters
@@ -81,14 +85,16 @@ public class Reserva {
         this.capacidade = capacidade;
     }
 
-    public void setConfimada(Boolean confimada) {
-        this.confimada = confimada;
+    public void setConfirmada(Boolean confirmada) {
+        this.confirmada = confirmada;
     }
 
     @Override
     public String toString() {
-        return "Product{id = " + id + ", recurso = " + recurso +
-                ", responsável = " + responsavel + ", data" + dataHora + "}";
+        return "Reserva{id = " + id + ", recurso = " + recurso +
+                ", responsável = " + responsavel + ", data = " + dataHora + ", capacidade = " + capacidade + ", status = " + confirmada + "}";
     }
 
 }
+
+
