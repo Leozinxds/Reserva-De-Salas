@@ -22,7 +22,7 @@ public class ReservaDTO {
 
     @NotBlank(message = "Owner is required")
     @Size(min = 2, max = 100, message = "Name must be between 2 and 100 chacacters")
-    @Schema(description = "Name of the person responsible for the reservation", example = "Lorenzo")
+    @Schema(description = "Name of the person responsible for the reservation", example = "Eduardo")
     private String responsavel;
 
     @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm")
@@ -33,7 +33,7 @@ public class ReservaDTO {
     @Schema(description = "Maximum number of people allowed in the reservation", example = "30")
     private int capacidade;
 
-    @Schema(description = "Indicates whether the reservation has been confirmed",
+    @Schema(description = "Indicates if the reservation has been confirmed",
     example = "false",
     accessMode = Schema.AccessMode.READ_ONLY)
     private boolean confirmada;
