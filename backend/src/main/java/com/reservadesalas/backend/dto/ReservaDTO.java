@@ -36,9 +36,9 @@ public class ReservaDTO {
     @Schema(description = "Indicates if the reservation has been confirmed",
     example = "false",
     accessMode = Schema.AccessMode.READ_ONLY)
-    private boolean confirmada;
+    private Boolean confirmada;
 
-    public ReservaDTO(Long id, String recurso, String responsavel, LocalDateTime dataHora, int capacidade, boolean confirmada){
+    public ReservaDTO(Long id, String recurso, String responsavel, LocalDateTime dataHora, int capacidade, Boolean confirmada){
         this.id = id;
         this.recurso = recurso;
         this.responsavel = responsavel;
@@ -67,7 +67,7 @@ public class ReservaDTO {
         return capacidade;
     }
 
-    public boolean isConfirmada() {
+    public Boolean getConfirmada() {
         return confirmada;
     }
 
@@ -91,7 +91,7 @@ public class ReservaDTO {
         this.capacidade = capacidade;
     }
 
-    public void setConfirmada(boolean confirmada) {
+    public void setConfirmada(Boolean confirmada) {
         this.confirmada = confirmada;
     }
 }

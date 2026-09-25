@@ -35,11 +35,12 @@ public class Reserva {
 
     }
 
-    public Reserva(String recurso, String responsavel, LocalDateTime dataHora, int capacidade) {
+    public Reserva(String recurso, String responsavel, LocalDateTime dataHora, int capacidade,  Boolean confirmada) {
         this.recurso = recurso;
         this.responsavel = responsavel;
         this.dataHora = dataHora;
         this.capacidade = capacidade;
+        this.confirmada = confirmada;
     }
 
 

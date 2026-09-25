@@ -23,7 +23,8 @@ public class ReservaMapper {
             reservaDTO.getRecurso(),
             reservaDTO.getResponsavel(),
             reservaDTO.getDataHora(),
-            reservaDTO.getCapacidade()
+            reservaDTO.getCapacidade(),
+            reservaDTO.getConfirmada()
         );
     }
 
