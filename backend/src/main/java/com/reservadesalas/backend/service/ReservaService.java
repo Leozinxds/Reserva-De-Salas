@@ -27,6 +27,17 @@ public class ReservaService {
         .toList();
     }
 
+    public Optional<ReservaDTO> confirmarReserva(Long id) {
+        return reservaRepository.findById(id)
+        .map(reserva -> {
+        reserva.setConfirmada(true);
+            return ReservaMapper.toDTO(
+                reservaRepository.save(reserva)
+            );
+        });
+
+    }
+
     public Optional<ReservaDTO> getReservaById(Long id){
         return reservaRepository.findById(id)
         .map(ReservaMapper::toDTO);
