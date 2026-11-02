@@ -5,8 +5,10 @@ import java.time.LocalDateTime;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.Future;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Positive;
 import jakarta.validation.constraints.Size;
 
 @Schema(description = "Reservation data transfer object")
@@ -25,11 +27,13 @@ public class ReservaDTO {
     @Schema(description = "Name of the person responsible for the reservation", example = "Eduardo")
     private String responsavel;
 
+    @NotNull(message = "Date and time are required")
+    @Future(message = "Date and time are required")
     @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm")
     @Schema(description = "Date and time of the reservation", example = "2026-09-22T12:30")
     private LocalDateTime dataHora;
 
-    @Min(value = 0, message = "Capacity cannot be negative")
+    @Positive(message = "Capacity must be greater than zero")
     @Schema(description = "Maximum number of people allowed in the reservation", example = "30")
     private int capacidade;
 
